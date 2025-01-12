@@ -1,8 +1,4 @@
 <?
-include 'index.php';
-include 'capturarDados.php';
-include 'cadastrarUsuario.php';
-include 'login.php';
 
 echo "Olá, seja bem vindo ao VendiTudo\n\n";
 
