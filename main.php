@@ -1,8 +1,8 @@
 <?
-$dirCadastrar = __DIR__ . '/../model/capturarDados.php';
-$dirCadastrar = __DIR__ . '/../model/cadastroUsuario.php';
-include $dirCadastrar;
-include $dirCadastrar;
+include 'index.php';
+include 'capturarDados.php';
+include 'cadastrarUsuario.php';
+include 'login.php';
 
 echo "Olá, seja bem vindo ao VendiTudo\n\n";
 
@@ -15,8 +15,8 @@ $opcao = fgets(STDIN);
 
 switch($opcao){
     case "1":
-        $capturar->capturarDados();
-        $cadastrar->cadastrarUsuario();
+        $capturarDados=new capturarDados($cpf, $nome, $email, $tel, $logradouro, $numero, $bairro, $cep, $cidade, $estado, $país, $senha);
+        $cadastrarUsuario=new cadastrarUsuario($pdo);
         break;
 
     case "2":

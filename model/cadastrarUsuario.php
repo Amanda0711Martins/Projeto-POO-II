@@ -1,5 +1,5 @@
 <?php
-class CadastroUsuario {
+class CadastrarUsuario {
     private $db;
 
     public function __construct(PDO $db) {
