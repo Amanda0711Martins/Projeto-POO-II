@@ -1,44 +1,44 @@
 <?
 class CapturarDados{
-public function capturarDados($cpf, $nome, $email, $tel, $logradouro, $numero, $bairro, $cep, $cidade, $estado, $país, $senha)
+public function capturarDados()
 {
-    $this->cpf = $cpf;
-    $this->nome = $nome;
-    $this->email = $email;
-    $this->tel = $tel;
-    $this->logradouro = $logradouro;
-    $this->numero = $numero;
-    $this->bairro = $bairro;
-    $this->cep = $cep;
-    $this->cidade = $cidade;
-    $this->estado = $estado;
-    $this->país = $país;
-    $this->senha = $senha;
-
     echo "Digite seu CPF: \n";
-    $this->cpf = fgets(STDIN);
+    $cpf = readline();
     echo "Digite seu nome: \n";
-    $this->nome = fgets(STDIN);
+    $nome = readline();
     echo "Digite seu email: \n";
-    $this->email = fgets(STDIN);
+    $email = readline();
     echo "Digite seu telefone: \n";
-    $this->tel = fgets(STDIN);
+    $tel = readline();
     echo "Digite seu logradouro (Rua, Avenida, etc): \n";
-    $this->logradouro = fgets(STDIN);
+    $logradouro = readline();
     echo "Digite o número: \n";
-    $this->numero = fgets(STDIN);
+    $numero = readline();
     echo "Digite bairro: \n";
-    $this->bairro = fgets(STDIN);
+    $bairro = readline();
     echo "Digite CEP: \n";
-    $this->cep = fgets(STDIN);
+    $cep = readline();
     echo "Digite a cidade: \n";
-    $this->cidade = fgets(STDIN);
+    $cidade = readline();
     echo "Digite o estado: \n";
-    $this->estado = fgets(STDIN);
+    $estado = readline();
     echo "Digite o país: \n";
-    $this->país = fgets(STDIN);
+    $país = readline();
     echo "Digite a senha: \n";
-    $this->senha = fgets(STDIN);
-        
+    $senha = readline();
+    return [
+        'cpf' => $cpf,
+        'nome' => $nome,
+        'email' => $email,
+        'tel' => $tel,
+        'logradouro' => $logradouro,
+        'numero' => $numero,
+        'bairro' => $bairro,
+        'cep' => $cep,
+        'cidade' => $cidade,
+        'estado' => $estado,
+        'país' => $país,
+        'senha' => $senha
+    ];
 }
 }

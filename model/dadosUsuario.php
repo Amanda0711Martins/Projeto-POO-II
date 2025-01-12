@@ -1,5 +1,5 @@
 <?
-class Usuario
+class dadosUsuario
 {
     private $cpf;
     private $nome;

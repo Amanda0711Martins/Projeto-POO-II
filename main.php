@@ -11,7 +11,8 @@ $opcao = fgets(STDIN);
 
 switch($opcao){
     case "1":
-        $capturarDados=new capturarDados($cpf, $nome, $email, $tel, $logradouro, $numero, $bairro, $cep, $cidade, $estado, $país, $senha);
+        $capturarDados=new capturarDados();
+        $dadosUsuario = $capturarDados->capturarDados();
         $cadastrarUsuario=new cadastrarUsuario($pdo);
         break;
 

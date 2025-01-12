@@ -6,7 +6,7 @@ class CadastrarUsuario {
         $this->db = $db;
     }
 
-    public function cadastrarUsuario(Usuario $usuario) {
+    public function cadastrarUsuario(dadosUsuario $usuario) {
         $cpf = $usuario->getCpf();
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();

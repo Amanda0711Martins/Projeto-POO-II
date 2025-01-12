@@ -8,7 +8,7 @@
     IS_TEMPLATE = False;
 	
 	CREATE TABLE dadosCliente(
-	id SERIAL,
+	id SERIAL PRIMARY KEY,
 	cpf CHAR(11),
 	nome VARCHAR(255),
 	email VARCHAR(255),
@@ -23,4 +23,24 @@
 	senha VARCHAR(255)
 );
 
-SELECT * FROM dadosCliente;
+	CREATE TABLE fornecedor(
+	id SERIAL PRIMARY KEY,
+	cnpj INTEGER,
+	nome VARCHAR(255)
+);
+	CREATE TABLE produto(
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(255),
+	preco NUMERIC(10,2),
+	fornecedor_id INTEGER,
+	FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id),
+);
+
+	CREATE TABLE favoritos(
+	id SERIAL PRIMARY KEY,
+	cliente_id INTEGER,
+	produto_id INTEGER,
+	FOREIGN KEY (cliente_id) REFERENCES dadosCliente(id),
+	FOREIGN KEY (produto_id) REFERENCES produto(id)
+);
+
