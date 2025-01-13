@@ -1,6 +1,8 @@
-<?
-class dadosUsuario
+<?php
+namespace model;
+class Usuario
 {
+    public $capturarDados;
     private $cpf;
     private $nome;
     private $email;
@@ -84,6 +86,7 @@ class dadosUsuario
     {
         return $this->país;
     }
+
     public function getSenha(): mixed
     {
         return $this->senha;

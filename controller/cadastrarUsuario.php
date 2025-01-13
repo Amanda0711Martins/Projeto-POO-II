@@ -1,12 +1,19 @@
 <?php
-class CadastrarUsuario {
+
+namespace controller;
+use model\dadosUsuario;
+
+class CadastrarUsuario
+{
     private $db;
 
-    public function __construct(PDO $db) {
+    public function __construct(PDO $db)
+    {
         $this->db = $db;
     }
 
-    public function cadastrarUsuario(dadosUsuario $usuario) {
+    public function cadastrarUsuario(dadosUsuario $usuario)
+    {
         $cpf = $usuario->getCpf();
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
@@ -21,8 +28,7 @@ class CadastrarUsuario {
         $senha = $usuario->getSenha();
 
         $query = "INSERT INTO dadoscliente (cpf, nome, email, tel, 
-        logradouro, numero, bairro, cep, cidade, estado, país, senha) 
-        
+        logradouro, numero, bairro, cep, cidade, estado, país, senha)        
         VALUES (:cpf, :nome, :email, :tel, :logradouro, :numero,
          :bairro, :cep, :cidade, :estado, :país, :senha)";
 
