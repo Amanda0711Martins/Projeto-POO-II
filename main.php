@@ -5,9 +5,6 @@ require_once 'model/capturarDados.php';
 use model\Usuario;
 use model\CapturarDados;
 
-//require __DIR__ . '/Usuario.php';
-//require __DIR__ . '/cadastrarUsuario.php';
-
 //require_once 'initDB.php';
 
 echo "Olá, seja bem vindo ao VendiTudo\n\n";
