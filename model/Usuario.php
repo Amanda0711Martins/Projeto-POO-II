@@ -13,10 +13,10 @@ class Usuario
     private $cep;
     private $cidade;
     private $estado;
-    private $país;
+    private $pais;
     private $senha;
 
-    public function __construct($cpf, $nome, $email, $tel, $logradouro, $numero, $bairro, $cep, $cidade, $estado, $país, $senha)
+    public function __construct($cpf, $nome, $email, $tel, $logradouro, $numero, $bairro, $cep, $cidade, $estado, $pais, $senha)
     {
         $this->cpf = $cpf;
         $this->nome = $nome;
@@ -28,66 +28,65 @@ class Usuario
         $this->cep = $cep;
         $this->cidade = $cidade;
         $this->estado = $estado;
-        $this->país = $país;
+        $this->pais = $pais;
         $this->senha = $senha;
     }
 
-    public function getCpf(): mixed
+    public function getCpf()
     {
         return $this->cpf;
     }
 
-    public function getNome(): mixed
+    public function getNome()
     {
         return $this->nome;
     }
 
-    public function getEmail(): mixed
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function getTel(): mixed
+    public function getTel()
     {
         return $this->tel;
     }
 
-    public function getLogradouro(): mixed
+    public function getLogradouro()
     {
         return $this->logradouro;
     }
 
-    public function getNumero(): mixed
+    public function getNumero()
     {
         return $this->numero;
     }
 
-    public function getBairro(): mixed
+    public function getBairro()
     {
         return $this->bairro;
     }
 
-    public function getCep(): mixed
-    {
+    public function getCep(){
         return $this->cep;
     }
 
-    public function getCidade(): mixed
+    public function getCidade()
     {
         return $this->cidade;
     }
 
-    public function getEstado(): mixed
+    public function getEstado()
     {
         return $this->estado;
     }
 
-    public function getPaís(): mixed
+    public function getPais()
     {
-        return $this->país;
+        return $this->pais;
     }
 
-    public function getSenha(): mixed
+    public function getSenha()
     {
         return $this->senha;
     }

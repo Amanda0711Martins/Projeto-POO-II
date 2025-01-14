@@ -2,7 +2,7 @@
 namespace model;
 class CapturarDados
 {
-    public function capturarDados(): array
+    public static function capturarDados(): array
     {
         echo "Digite seu CPF: \n";
         $cpf = readline();
@@ -25,7 +25,7 @@ class CapturarDados
         echo "Digite o estado: \n";
         $estado = readline();
         echo "Digite o país: \n";
-        $país = readline();
+        $pais = readline();
         echo "Digite a senha: \n";
         $senha = readline();
         return [
@@ -39,7 +39,7 @@ class CapturarDados
             'cep' => $cep,
             'cidade' => $cidade,
             'estado' => $estado,
-            'país' => $país,
+            'pais' => $pais,
             'senha' => $senha
         ];
     }

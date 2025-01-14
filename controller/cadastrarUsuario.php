@@ -24,13 +24,13 @@ class CadastrarUsuario
         $cep = $usuario->getCep();
         $cidade = $usuario->getCidade();
         $estado = $usuario->getEstado();
-        $país = $usuario->getPaís();
+        $pais = $usuario->getPais();
         $senha = $usuario->getSenha();
 
         $query = "INSERT INTO dadoscliente (cpf, nome, email, tel, 
-        logradouro, numero, bairro, cep, cidade, estado, país, senha)        
+        logradouro, numero, bairro, cep, cidade, estado, pais, senha)        
         VALUES (:cpf, :nome, :email, :tel, :logradouro, :numero,
-         :bairro, :cep, :cidade, :estado, :país, :senha)";
+         :bairro, :cep, :cidade, :estado, :pais, :senha)";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':cpf', $cpf);
@@ -43,7 +43,7 @@ class CadastrarUsuario
         $stmt->bindParam(':cep', $cep);
         $stmt->bindParam(':cidade', $cidade);
         $stmt->bindParam(':estado', $estado);
-        $stmt->bindParam(':país', $país);
+        $stmt->bindParam(':pais', $pais);
         $stmt->bindParam(':senha', $senha);
 
         try {

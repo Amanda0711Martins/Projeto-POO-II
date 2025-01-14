@@ -1,8 +1,12 @@
 <?php
 global $pdo;
 
-require __DIR__ . '/Usuario.php';
-require __DIR__ . '/cadastrarUsuario.php';
+require_once 'model/capturarDados.php';
+use model\Usuario;
+use model\CapturarDados;
+
+//require __DIR__ . '/Usuario.php';
+//require __DIR__ . '/cadastrarUsuario.php';
 
 //require_once 'initDB.php';
 
@@ -11,13 +15,12 @@ echo "=============Menu=============\n";
 echo "1 - Cadastrar novo Usuário\n";
 echo "2 - Realizar Login\n";
 echo "3 - Sair\n";
-
+$usuario = [];
 $opcao = readline();
 
 switch($opcao){
     case "1":
-        $usuario = new \model\Usuario();
-        $usuario->capturarDados;
+        $usuario =  CapturarDados::capturarDados();
         break;
 
     /*case "2":
