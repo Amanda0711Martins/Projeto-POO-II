@@ -1,7 +1,9 @@
 <?php
 
 namespace controller;
-use model\dadosUsuario;
+use model\Usuario;
+use PDO;
+use PDOException;
 
 class CadastrarUsuario
 {
@@ -12,7 +14,7 @@ class CadastrarUsuario
         $this->db = $db;
     }
 
-    public function cadastrarUsuario(dadosUsuario $usuario)
+    public function cadastrarUsuario(Usuario $usuario)
     {
         $cpf = $usuario->getCpf();
         $nome = $usuario->getNome();

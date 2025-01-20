@@ -1,8 +1,9 @@
 <?php
 global $pdo;
 
-require_once 'model/capturarDados.php';
-use model\Usuario;
+require_once 'model/CapturarDados.php';
+
+use model\Login;
 use model\CapturarDados;
 
 //require_once 'initDB.php';
@@ -20,7 +21,7 @@ switch($opcao){
         $usuario =  CapturarDados::capturarDados();
         break;
 
-    /*case "2":
-        $login->realizarLogin();
-        break;*/
+    case "2":
+        $login = Login::realizarLogin();
+        break;
 }
