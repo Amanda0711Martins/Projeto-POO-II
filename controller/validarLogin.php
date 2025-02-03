@@ -6,7 +6,7 @@ use model\Login;
 use PDO;
 use PDOException;
 
-class validarLogin
+class ValidarLogin
 {
     private $db;
 
@@ -15,21 +15,24 @@ class validarLogin
         $this->db = $db;
     }
 
-    public function validarLogin()
+    public function validarLogin($email, $senha)
     {
-        $email = Login::realizarLogin();
-        $senha = Login::realizarLogin();
-        $query = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
-
+        $query = "SELECT * FROM usuario WHERE email = :email";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
 
         try {
             $stmt->execute();
-            echo "Login realizado com sucesso!";
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($usuario && password_verify($senha, $usuario['senha'])) {
+                echo "Login realizado com sucesso!";
+                $_SESSION['usuario'] = $usuario['id'];
+            } else {
+                echo "Email ou senha incorretos.";
+            }
         } catch (PDOException $e) {
-            echo "Erro ao realizar login, tente novamente: " . $e->getMessage();
+            echo "Erro ao realizar login, tente novamente.";
         }
     }
 }

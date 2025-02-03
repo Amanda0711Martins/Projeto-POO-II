@@ -1,16 +1,26 @@
 <?php
 namespace model;
-use controller\validarLogin;
+
+use controller\ValidarLogin;
+use PDO;
 
 class Login
 {
-    public static function realizarLogin(): array
+    private $db;
+
+    public function __construct(PDO $db)
+    {
+        $this->db = $db;
+    }
+
+    public function realizarLogin()
     {
         echo "Digite seu e-mail: \n";
-        $email = readline();
-        echo "Digite a senha: \n";
-        $senha = readline();
-        return [$email, $senha];
-        (new validarLogin)->validarLogin();
+        $email = trim(fgets(STDIN));
+        echo "Digite sua senha: \n";
+        $senha = trim(fgets(STDIN));
+
+        $validador = new ValidarLogin($this->db);
+        $validador->validarLogin($email, $senha);
     }
 }

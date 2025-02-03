@@ -29,6 +29,8 @@ class CadastrarUsuario
         $pais = $usuario->getPais();
         $senha = $usuario->getSenha();
 
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
         $query = "INSERT INTO dadoscliente (cpf, nome, email, tel, 
         logradouro, numero, bairro, cep, cidade, estado, pais, senha)        
         VALUES (:cpf, :nome, :email, :tel, :logradouro, :numero,
