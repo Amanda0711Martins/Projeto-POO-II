@@ -32,8 +32,9 @@
 	id SERIAL PRIMARY KEY,
 	nome VARCHAR(255),
 	preco NUMERIC(10,2),
+    descricao TEXT,
 	fornecedor_id INTEGER,
-	FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id),
+	FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id)
 );
 
 	CREATE TABLE favoritos(
@@ -43,4 +44,8 @@
 	FOREIGN KEY (cliente_id) REFERENCES dadosCliente(id),
 	FOREIGN KEY (produto_id) REFERENCES produto(id)
 );
+
+
+
+
 
