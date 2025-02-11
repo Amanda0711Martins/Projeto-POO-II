@@ -24,7 +24,7 @@ if ($uri[0] === 'usuarios') {
     else if ($method === 'DELETE' && isset($uri[1])) {
         $controller->excluirUsuario($uri[1]);
     }else {
-        echo json_encode(['error' => 'Rota Inválida'], 405);
+        echo json_encode(['error' => 'Rota Inválidaa'], 405);
     }
 
 }
