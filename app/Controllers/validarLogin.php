@@ -1,8 +1,7 @@
 <?php
 
-namespace controller;
+namespace app\Controllers;
 
-use model\Login;
 use PDO;
 use PDOException;
 

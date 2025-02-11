@@ -1,12 +1,12 @@
 <?php
 global $pdo;
 
-require_once 'model/CapturarDados.php';
+require_once 'Models/CapturarDados.php';
 
-use model\Login;
-use model\CapturarDados;
+use app\Models\CapturarDados;
+use app\Models\Login;
 
-//require_once 'initDB.php';
+//require_once 'Database.php';
 
 echo "Olá, seja bem vindo ao VendiTudo\n\n";
 echo "=============Menu=============\n";

@@ -1,7 +1,7 @@
 <?php
-namespace model;
+namespace app\Models;
 
-use controller\ValidarLogin;
+use app\Controllers\ValidarLogin;
 use PDO;
 
 class Login

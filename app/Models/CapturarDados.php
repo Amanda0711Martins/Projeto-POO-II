@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace app\Models;
 class CapturarDados
 {
     public static function capturarDados(): array

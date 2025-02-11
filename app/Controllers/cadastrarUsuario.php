@@ -1,6 +1,6 @@
 <?php
 
-namespace controller;
+namespace app\Controllers;
 use model\Usuario;
 use PDO;
 use PDOException;
