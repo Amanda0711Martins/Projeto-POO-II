@@ -14,6 +14,11 @@ if ($request_uri === "/clientes") {
     exit;
 }
 
+if ($_SERVER['REQUEST_URI'] === "/produtos") {
+    require_once __DIR__ . '/../app/Views/produtos.php';
+    exit;
+}
+
 // Se não encontrar, mostra erro 404
 http_response_code(404);
 echo "Página não encontrada!";

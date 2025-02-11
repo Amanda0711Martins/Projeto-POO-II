@@ -1,7 +1,8 @@
 <?php
 
-$request_uri = $_SERVER['REQUEST_URI'];
 
+$request_uri = $_SERVER['REQUEST_URI'];
+session_start();
 if (strpos($request_uri, "/api/") === 0) {
     // 🚀 Configuração para APIs
     header('Content-Type: application/json; charset=utf-8');
@@ -11,6 +12,7 @@ if (strpos($request_uri, "/api/") === 0) {
 
     require_once __DIR__ . '/../routes/usuario-api.php';
     require_once __DIR__ . '/../routes/cliente-api.php';
+    require_once __DIR__ . '/../routes/cliente-login-api.php';
     require_once __DIR__ . '/../routes/produto-api.php';
     exit;
 }

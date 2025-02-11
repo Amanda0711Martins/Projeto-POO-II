@@ -11,7 +11,7 @@
 	id SERIAL PRIMARY KEY,
 	cpf CHAR(11),
 	nome VARCHAR(255),
-	email VARCHAR(255),
+	email VARCHAR(255) NOT NULL UNIQUE,
 	tel INTEGER,
 	logradouro VARCHAR(255),
 	numero INTEGER,
