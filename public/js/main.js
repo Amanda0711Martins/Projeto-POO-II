@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     carregarCategorias();
     carregarProdutos();
+    atualizarContadorCarrinho();
 });
 
 // 🔹 Buscar categorias da API e exibir no menu lateral
@@ -38,7 +39,7 @@ function carregarProdutos(categoriaId = null) {
                                     <div class="card-body">
                                         <h5 class="card-title">${produto.nome}</h5>
                                         <p class="card-text">R$ ${parseFloat(produto.preco).toFixed(2).replace(".", ",")}</p>
-                                        <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>
+                                        <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>                                        
                                     </div>
                                 </div>
                             </div>`;
@@ -69,6 +70,9 @@ function renderizarProdutos() {
                                 <h5 class="card-title">${produto.nome}</h5>
                                 <p class="card-text">R$ ${precoNumero.toFixed(2).replace(".", ",")}</p>
                                 <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>
+                                <button class="btn btn-success mt-2 btn-comprar" onclick="adicionarAoCarrinho(${produto.id}, '${produto.nome}', ${precoNumero})">
+                                             🛒 Comprar
+                                </button>
                             </div>
                         </div>
                     </div>`;
@@ -102,5 +106,27 @@ function proximaPagina() {
         paginaAtual++;
         renderizarProdutos();
     }
+
+// Atualiza Carrinho de compras
+function atualizarContadorCarrinho() {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        document.getElementById("contador-carrinho").innerText = carrinho.length;
+    }
+// Adiciona Produto ao Carrinho de compras
+function adicionarAoCarrinho(id, nome, preco) {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        let produtoExistente = carrinho.find(produto => produto.id === id);
+        if (produtoExistente) {
+            produtoExistente.quantidade += 1;
+        } else {
+            carrinho.push({ id, nome, preco, quantidade: 1 });
+        }
+
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarContadorCarrinho();
+        alert(`${nome} foi adicionado ao carrinho!`);
+    }
+
 }
 
