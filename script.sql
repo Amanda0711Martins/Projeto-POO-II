@@ -33,6 +33,7 @@
 	nome VARCHAR(255),
 	preco NUMERIC(10,2),
     descricao TEXT,
+    imagem TEXT,
 	fornecedor_id INTEGER,
     categoria_id INTEGER,
 	FOREIGN KEY (fornecedor_id) REFERENCES fornecedor(id),
