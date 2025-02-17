@@ -25,6 +25,6 @@ if ($uri[0] === 'usuarios') {
         $controller->excluirUsuario($uri[1]);
     }else {
         echo json_encode(['error' => 'Rota Inválidaa'], 405);
+        exit;
     }
-
 }

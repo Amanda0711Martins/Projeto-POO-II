@@ -1,6 +1,8 @@
 <?php
 use app\Controllers\ClientesloginController;
 
+require_once __DIR__ . "/../app/Controllers/ClientesLoginController.php";
+
 $clienteController = new ClientesLoginController();
 
 $method = $_SERVER['REQUEST_METHOD'];

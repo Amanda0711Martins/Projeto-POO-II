@@ -14,6 +14,26 @@ class Produto {
         $this->database = $db->getInstance();
     }
 
+    public function getTodosProdutos() {
+        try {
+            $statement = $this->database->prepare("SELECT * FROM produtos");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+    public function getProdutosPorCategoria($categoriaId) {
+        try {
+            $statement = $this->database->prepare("SELECT * FROM produtos WHERE categoria_id = ?");
+            $statement->execute([$categoriaId]);
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
     public function getProdutos() {
         try {
             $statement = $this->database->prepare("SELECT * FROM produtos");

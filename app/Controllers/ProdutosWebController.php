@@ -10,8 +10,14 @@ class ProdutosWebController {
     }
 
     public function listarProdutos() {
-        return $this->produtoModel->getProdutos();
+        if (isset($_GET['categoria'])) {
+            return $this->produtoModel->getProdutosPorCategoria($_GET['categoria']);
+        }
+            return $this->produtoModel->getProdutos();
+
     }
+
+
 
     public function buscarProduto($id) {
         return $this->produtoModel->getProdutoById($id);

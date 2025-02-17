@@ -26,8 +26,5 @@ if ($uri[0] === 'clientes') {
     }else {
         echo json_encode(['error' => 'Rota Inválidaa'], 405);
     }
-
 }
-
-
 ?>
