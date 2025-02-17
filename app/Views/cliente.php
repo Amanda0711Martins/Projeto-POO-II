@@ -18,11 +18,12 @@ if (!$cliente) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Cliente</title>
-    <link rel="stylesheet" href="/css/clientes.css" >
+    <title>Detalhes do Cliente</title>    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/clientes.css" >
 </head>
 <body>
+<body class="main-clientes">
 <div class="container mt-5">
     <h2>Detalhes do Cliente</h2>
     <ul class="list-group">
