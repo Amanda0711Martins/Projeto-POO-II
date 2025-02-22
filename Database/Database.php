@@ -6,10 +6,10 @@ class Database{
     private static $instance = null;
     private $pdo;
     private $host = 'localhost';
-    private $porta = '5432';
-    private $banco = 'postgres';
+    private $porta = '5433';
+    private $banco = 'ClienteVendiTudo';
     private $usuario = 'postgres';
-    private $senha = 'Minas@0202';
+    private $senha = 'dan1985';
 
 
 public function __construct()
