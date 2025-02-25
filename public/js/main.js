@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarContadorCarrinho();
 });
 
+let produtosGlobal = [];
+let paginaAtual = 1;
+const produtosPorPagina = 3;
+
 // 🔹 Buscar categorias da API e exibir no menu lateral
 function carregarCategorias() {
     let url = "http://localhost:8080/api/categorias"
@@ -29,25 +33,9 @@ function carregarProdutos(categoriaId = null) {
     fetch(url)
         .then(response => response.json())
         .then(produtos => {
-            let lista = document.getElementById("lista-produtos");
-            lista.innerHTML = "";
-            if (produtos.length > 0) {
-                produtos.forEach(produto => {
-                    let card = `<div class="col-md-4 mb-4">
-                                <div class="card">
-                                    <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${produto.nome}</h5>
-                                        <p class="card-text">R$ ${parseFloat(produto.preco).toFixed(2).replace(".", ",")}</p>
-                                        <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>                                        
-                                    </div>
-                                </div>
-                            </div>`;
-                    lista.innerHTML += card;
-                });
-            } else {
-                lista.innerHTML = "<p class='text-center'>Nenhum produto encontrado.</p>";
-            }
+            produtosGlobal = produtos; // 🔹 Agora produtosGlobal tem os produtos carregados
+            paginaAtual = 1; // Sempre resetamos para a primeira página
+            renderizarProdutos();
         })
         .catch(error => console.error("Erro ao carregar produtos:", error));
 }
@@ -65,13 +53,15 @@ function renderizarProdutos() {
             let precoNumero = parseFloat(produto.preco);
             let card = `<div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
+                            <div class="card-img-container">
+                                <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">${produto.nome}</h5>
                                 <p class="card-text">R$ ${precoNumero.toFixed(2).replace(".", ",")}</p>
-                                <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>
+                                 <a href="produto.html?id=${produto.id}" class="btn btn-primary">Ver Detalhes</a>
                                 <button class="btn btn-success mt-2 btn-comprar" onclick="adicionarAoCarrinho(${produto.id}, '${produto.nome}', ${precoNumero})">
-                                             🛒 Comprar
+                                    🛒 Comprar
                                 </button>
                             </div>
                         </div>
@@ -107,11 +97,6 @@ function proximaPagina() {
         renderizarProdutos();
     }
 
-// Atualiza Carrinho de compras
-function atualizarContadorCarrinho() {
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-        document.getElementById("contador-carrinho").innerText = carrinho.length;
-    }
 // Adiciona Produto ao Carrinho de compras
 function adicionarAoCarrinho(id, nome, preco) {
         let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -126,6 +111,11 @@ function adicionarAoCarrinho(id, nome, preco) {
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
         atualizarContadorCarrinho();
         alert(`${nome} foi adicionado ao carrinho!`);
+    }
+// Atualiza Carrinho de compras
+    function atualizarContadorCarrinho() {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        document.getElementById("contador-carrinho").innerText = carrinho.length;
     }
 
 }
